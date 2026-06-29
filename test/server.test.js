@@ -28,11 +28,20 @@ describe('security pipeline sample service', () => {
     assert.deepEqual(await response.json(), { status: 'ok' });
   });
 
+  test('serves a DAST-friendly root route', async () => {
+    const response = await fetch(baseUrl);
+    const body = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(body.service, 'devsecops-security-pipeline-lab');
+  });
+
   test('sets defensive headers', async () => {
     const response = await fetch(`${baseUrl}/healthz`);
 
     assert.equal(response.headers.get('x-powered-by'), null);
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
+    assert.equal(response.headers.get('cache-control'), 'no-store');
     assert.ok(response.headers.get('x-request-id'));
   });
 

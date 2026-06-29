@@ -32,7 +32,19 @@ export function createApp() {
   app.use((req, res, next) => {
     req.requestId = randomUUID();
     res.setHeader('x-request-id', req.requestId);
+    res.setHeader('cache-control', 'no-store');
     next();
+  });
+
+  app.get('/', (_req, res) => {
+    res.status(200).json({
+      service: 'devsecops-security-pipeline-lab',
+      links: ['/healthz', '/api/search?q=appsec']
+    });
+  });
+
+  app.get('/robots.txt', (_req, res) => {
+    res.type('text/plain').send('User-agent: *\nDisallow:\n');
   });
 
   app.get('/healthz', (_req, res) => {
@@ -87,4 +99,3 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     logger.info({ port }, 'devsecops security pipeline lab listening');
   });
 }
-
