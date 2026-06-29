@@ -1,0 +1,13 @@
+node_modules/
+coverage/
+dist/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+zap-report.html
+zap-report.json
+trivy-results.sarif
+semgrep.sarif
+gitleaks-report.json
+

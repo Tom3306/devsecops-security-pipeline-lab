@@ -1,0 +1,32 @@
+rules:
+  - id: javascript-dangerous-eval
+    message: Avoid eval-like execution paths. Parse or validate data explicitly instead.
+    severity: ERROR
+    languages:
+      - javascript
+      - typescript
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)
+    metadata:
+      category: security
+      technology:
+        - javascript
+      owasp:
+        - A03:2021 - Injection
+
+  - id: express-missing-json-limit
+    message: Express JSON parsing should set a body-size limit to reduce abuse risk.
+    severity: WARNING
+    languages:
+      - javascript
+      - typescript
+    patterns:
+      - pattern: express.json()
+    metadata:
+      category: security
+      technology:
+        - express
+      owasp:
+        - A05:2021 - Security Misconfiguration
+

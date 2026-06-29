@@ -1,0 +1,33 @@
+{
+  "name": "devsecops-security-pipeline-lab",
+  "version": "0.1.0",
+  "description": "A recruiter-facing DevSecOps and AppSec pipeline lab for SAST, DAST, secrets, dependencies, containers, and supply-chain checks.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "lint": "node --check src/server.js && node --check test/server.test.js"
+  },
+  "keywords": [
+    "application-security",
+    "devsecops",
+    "owasp",
+    "sast",
+    "dast",
+    "supply-chain-security"
+  ],
+  "author": "Tom3306",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^7.1.0",
+    "pino": "^9.3.2",
+    "zod": "^3.23.8"
+  }
+}
