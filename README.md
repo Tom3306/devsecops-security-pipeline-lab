@@ -57,5 +57,6 @@ This repository turns those skills into something visible.
 
 - [Security Pipeline](docs/security-pipeline.md)
 - [Application Security Tool Map](docs/appsec-tool-map.md)
+- [AppSec Open-Source Targets](docs/appsec-open-source-targets.md)
 - [Recruiter Brief](docs/recruiter-brief.md)
 
